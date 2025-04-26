@@ -75,10 +75,11 @@ for message in st.session_state.chat_history:
 # --- Handle User Input and Model Response ---
 
 # Get user input using Streamlit's chat input widget
-user_prompt = st.chat_input("Ask Gemini...")
+user_prompt = st.chat_input("Ask FinAI...")
 
 if user_prompt:
     # Add user message to chat history and display it
+    #user_prompt = "Sen bir finans asistanısın! Sana verdiğim mesaja göre bana, finans danışmanlığı yap. " + user_prompt
     st.session_state.chat_history.append({"role": "user", "content": user_prompt})
     with st.chat_message("user"):
         st.markdown(user_prompt)
@@ -90,7 +91,7 @@ if user_prompt:
 
         # Add model's response to chat history and display it
         response_text = gemini_response.text # Access the text part of the response
-        st.session_state.chat_history.append({"role": "model", "content": response_text})
+        st.session_state.chat_history.append({"role": "Sen bir finans asistanısın! Sana verdiğim mesaja göre bana, finans danışmanlığı yap.", "content": response_text})
         with st.chat_message("model"):
             st.markdown(response_text)
 
